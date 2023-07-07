@@ -4,8 +4,8 @@ Knowledge Distillation 기법을 사용한 실습 정리
 ## 01) Response-based Knowledge
 FashionMNIST Dataset을 사용해 soft logits 을 통한 Knowledge transfer 실습을 진행  
 Network의 구조는 단순 DNN으로 진행, Teacher model은 6개의 layer, Student model은 1개의 layer로 구성  
-$Loss Fuction$ = $\sum$ $L_{KD}$ $(S(x,\theta_{S}, T )$, $T(x, \theta_{T}, T))$ $T^2 \alpha+ L_{CE}(\hat y_{S}, y)(1-\alpha)$  
 
+$Loss Fuction$ = $\sum$ $L_{KD}$ $(S(x,\theta_{S}, T )$, $T(x, \theta_{T}, T))$ $T^2 \alpha+ L_{CE}(\hat y_{S}, y)(1-\alpha)$  
 위와 같은 Loss를 사용하여 하이퍼파라미터인 T와 $\alpha$ 를 적절히 변경해가며 최적의 하이퍼파라미터를 탐색  
 
 단순 학습을 시켰을 때 Teacher Model's acc: 88.62%, Student Model's acc: 84.24%
@@ -33,10 +33,10 @@ Distillation을 함으로써 약 0.5%의 정확도가 올라간 것을 확인할
 ## 02) feature-based Knowledge
 CIFAR10 Dataset을 사용해 intermediate layer의 output을 통한 Knowledge transfer 실습 진행  
 Network의 구조는 Teacher model은 ResNet18, Student model은 3개의 CNN layer with BatchNormaliztion 으로 구성  
+
 $Loss Fuction$ = $\sum (L_{MSE}(\psi_{Student}(x),\psi_{Teacher}(x), L_{MSE}(\phi_{Student}(x),\phi_{Teacher}(x), L_{CE}(\hat y, y))$  
 $\psi$ 는 첫 번째 Feature map을 출력하는 함수이고,  $\phi$ 는 두 번째 Feature map을 출력하는 함수를 의미  
-
-
 *가장 초기의 Loss는 Feature Map 한개만 사용하여 MSE loss를 산출했지만 성능이 나오지 않아 Feature map을 2개를 사용함*  
+
 
 단순 학습을 시켰을 때 Teacher Model's acc: 91.48%, Student Model's acc: 76.10%
