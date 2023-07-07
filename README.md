@@ -3,7 +3,9 @@ Knowledge Distillation 기법을 사용한 실습 정리
 
 ## 01) Response-based Knowledge
 FashionMNIST Dataset을 사용해 soft logits 을 통한 Knowledge transfer 실습을 진행  
+
 $L = \sum L_{KD}(S(x,\theta _{S}, T ), T(x, \theta _{T}, T)) T^2 \alpha+ L_{CE}(\hat y_{S}, y)(1-\alpha)$  
+
 위와 같은 Loss를 사용하여 하이퍼파라미터인 T와 $\alpha$ 를 적절히 변경해가며 최적의 하이퍼파라미터를 탐색  
 
 단순 학습을 시켰을 때 Teacher Model's acc: 88.62%, Student Model's acc: 84.24%
