@@ -36,7 +36,7 @@ Network의 구조는 Teacher model은 ResNet18, Student model은 3개의 CNN lay
 
 $$Loss Fuction = (L_{MSE}(\psi_{Student}(x),\psi_{Teacher}(x)) + L_{MSE}(\phi_{Student}(x),\phi_{Teacher}(x)))\cdot \alpha  + L_{CE}(\hat y_{s}, y)$$  
 
-$\psi$ 는 첫 번째 Feature map을 출력하는 함수이고,  $\phi$ 는 두 번째 Feature map을 출력하는 함수를 의미  
+$\psi$ 는 첫 번째 Attention map을 출력하는 함수이고,  $\phi$ 는 두 번째 Attention map을 출력하는 함수를 의미  
 *가장 초기의 Loss는 Feature Map을 사용하여 MSE loss를 산출했지만 Attention map을 2개를 사용해 MSE Loss를 산출*  
 
 단순 학습을 시켰을 때 Teacher Model's acc: 91.48%, Student Model's acc: 76.10%
